@@ -1,0 +1,15 @@
+declare @idcliet
+create table VentasTmp (
+id bigint identity(1,1) not null,
+no_ticket bigint not null,
+unidad varchar(50),
+cantidad float,
+descripcion varchar(150),
+precio real,
+importe real,
+cve_pro varchar(30),
+descto float,
+iva_aplic money,
+ieps_aplic money,
+codigo varchar(50)    
+)

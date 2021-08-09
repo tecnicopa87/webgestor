@@ -1,0 +1,89 @@
+﻿body {
+}
+#MainContent_VentanaReceptor
+{
+    position :fixed ;/*sino es aspcontrol,'relative' ocupa espcio aun estando oculto */
+    left :20%;
+    top:32%;
+    background-color :#FFCCCC;
+    border-radius:15px;
+    width: 602px;
+    /*visibility :hidden;*/
+}
+#MainContent_VentanaCIEC /*siendo control server se anexa el "MainContent_"
+                        en tiempo de ejecucion*/
+{
+    position :relative ;
+    left :30%;
+    top :10%;
+}                        
+.tabPersonaliz /*Es prioritaria una tabla sobre div(VentanaCIEC) */
+{
+    width: 177px; 
+    left :30%;
+    top :30%;
+    border-radius:15px;
+    background-color :#CC3399; 
+    color :White ;    
+}                     
+
+.etiqueta
+{
+    text-align :right ;
+    color :Black ;
+}
+.Col3 /*descripcion en gridview*/
+{
+    width :150px;
+    white-space:nowrap ;
+    word-spacing :2;
+    word-wrap:break-all;
+    background-color :Gray ;
+} 
+.Col8 /* campo fecha */
+{
+    width :60px;
+    white-space:nowrap ;
+    word-spacing :2;
+    word-wrap:break-all;
+}
+.Col10 /* campo iva */
+{
+    width :10px;
+    white-space:nowrap ;    
+    word-wrap:break-all;
+    visibility:hidden ;
+}
+.Col11 /* campo ieps*/
+{
+    width :10px;
+    white-space:nowrap ;
+    word-wrap:break-all;
+}
+.Totales
+{
+    color :#CC0099;/* Gray ;*/
+    font-size :medium;
+}
+
+.styletxt1 /* text cant en Compras*/
+{
+    width :65px;
+}
+.styletxt2 /* text descripcion en Compras*/
+{
+    width :211px;
+}
+.styleDesc 
+{
+    width: 110px;
+}
+.styleCod {
+    width: 110px;
+}
+/*.GridPersonalizado th
+{
+    no aplco xq necesitaría indicar desde codigo una class distinta a c/encabezado
+    
+}*/
+

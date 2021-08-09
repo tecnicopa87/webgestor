@@ -1,0 +1,112 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Reportes.Master.vb" Inherits="GestorVS2012.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />     
+    <title><%: Page.Title %> - Reportes</title>
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+    <link href ="~/Content/bootstrap.css"  rel="stylesheet" />
+    <asp:PlaceHolder runat="server">        
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.5.3.js") %>"></script>
+    
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>
+    </asp:ScriptManager>--%>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+    <header>
+        <div class="container">
+            <div class="float-left">
+                <p class="site-title"><a runat="server" href="~/">
+                    <asp:Image ID="Image1" runat="server" Height="46px" Width="60px" ImageUrl="~/Images/Servitec.jpg"/></a>&nbsp;GESTOR DE FACTURACION EASY CONTROL</p>
+            </div>
+            <div class="float-right">
+                <asp:Label runat="server" ID ="idUsuario"></asp:Label>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+       <nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Menu</a>
+  </div>
+ 
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">      
+      <li><a href="<%: ResolveUrl("~/Gestor/DatosEmpresa.aspx")%>">Datos Empresa</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Ventas<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Consultar en TPV</a></li>
+          <li><a href="<%: ResolveUrl("~/Gestor/VentasOnline.aspx")%>">Vender en web</a></li>
+         <li><a href="<%: ResolveUrl("~/Gestor/ConsultVntas.aspx")%>">Mis Ventas</a></li>
+            <li><a href="<%: ResolveUrl("~/Gestor/ListaProductos.aspx")%>">Catalogo productos</a></li>
+        </ul>
+      </li>
+        <li class ="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Compras<b class="caret"></b></a>
+            <ul class ="dropdown-menu" >
+                <li><a href="<%: ResolveUrl("~/Gestor/Compras.aspx")%>">Registrar compra</a></li>
+            </ul>
+        </li>
+        <li><a href="<%: ResolveUrl("~/Gestor/ConsultarFact.aspx")%>">Facturas</a></li>
+    </ul>
+ 
+    <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Configuracion<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - My ASP.NET Application
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+    <!-- Seccion de script bootstrap -->
+        <script src ="<%: ResolveUrl("~/Scripts/jquery-1.9.1.js")%>"></script>
+        <script src ="<%: ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿body {
+}
+.frmBase
+{
+    position :relative;
+    margin-left:5%;
+    margin-top :10%;
+    background-color :green;
+    /*top: -21px;*/
+    /*left: 0px;*/
+    height:68%;/*380px;*/
+    width: 149%;/*653px;*/
+    /*top: 0px; no necesario*/
+    /*left: 0px; no necesario*/
+} 
+/*.frmBase2 *//*Page Listaproductos */
+/*{
+    position :relative;
+    margin-left:13%;
+    margin-top :8%;
+    background-color :Gray;
+    top: -11px;
+    left: 0px;
+    height: 710px;
+    width: 700px;
+} */
+.tab
+{
+    position :relative;
+    left:10%;/*25px;*/ 
+    top :25%;/*31px;*/
+}
+ .style1
+        {
+            width:12.5em;/*37% ; 200px;*/
+            text-align :left;
+            color :White ;
+        }
+        .style2
+        {
+            width:12.31em;/*36%; 197px;*/
+        }
+        .font
+        {
+            color:White ;
+            text-align :right ;
+            font-family:Arial;
+        } 
+        .style3
+        {
+            width:8.68em; /*26%; 139px;*/
+        }
+        .style4
+        {
+            width: 37%;/*200px;*/
+            text-align : right;
+            color : White;
+            /*height: 21px;*/
+        }
+        .style5
+        {
+            width: 36%;/*197px;*/
+            height: 33%;/*42px;*/
+        }
+        .style6
+        {
+            width:26%;/* 139px;*/
+            height:33%; /*42px;*/
+        }
+        .style7
+        {
+            width: 37%;/*200px;*/
+            text-align : right;
+            color : White;
+            height:33%; /*42px;*/
+        }
+.cboEstados {
+    Width: 22em;/*36%; 196px;*/
+}
+.cboRegimen {
+     /*Height:16px;*/
+    Width: 12.12em;/*35%; 194px;*/
+}
+
+        

@@ -1,0 +1,11 @@
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.Resources.resources
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.vbproj.GenerateResource.Cache
+C:\docs\GestorVS2012_\gestorDataAcces\bin\x86\Debug\gestorDataAcces.dll
+C:\docs\GestorVS2012_\gestorDataAcces\bin\x86\Debug\gestorDataAcces.pdb
+C:\docs\GestorVS2012_\gestorDataAcces\bin\x86\Debug\gestorDataAcces.xml
+C:\docs\GestorVS2012_\gestorDataAcces\bin\x86\Debug\GestorEntities.dll
+C:\docs\GestorVS2012_\gestorDataAcces\bin\x86\Debug\GestorEntities.pdb
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.vbprojResolveAssemblyReference.cache
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.dll
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.xml
+C:\docs\GestorVS2012_\gestorDataAcces\obj\x86\Debug\gestorDataAcces.pdb

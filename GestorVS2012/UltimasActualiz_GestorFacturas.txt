@@ -1,0 +1,6 @@
+DatosEmpDAL
+correccion del idclient por default
+
+agrego una pagina para admin
+codigo completado de Login.aspx
+a cada pageevaluacion de Edo_App(tablas creadas)
