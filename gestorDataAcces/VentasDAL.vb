@@ -216,7 +216,7 @@ Public Class VentasDAL
     End Function
     Public Function GuardaVentaOnline(ByVal idUsuario As String, ByVal CabezalVenta As GestorEntities.CabezalVenta, ByVal lstproductos As List(Of GestorEntities.LineasDetalleVenta)) As String
         Dim Resultado As String
-        Dim retorna As Integer 'cmd.execute
+        Dim retorna As Integer '
 
         Dim modelCbzVenta As New GestorEntities.CabezalVenta
         modelCbzVenta = CabezalVenta
@@ -233,8 +233,8 @@ Public Class VentasDAL
                 Scon.Open()
 
                 Dim query As String
-                query = "insert into " & tabCortes & "(folVenta,monto,concepto,usuario,fecha,entrada,salida,totiva,totieps,folfactura) " & _
-                    " values (@folvnta,@montovnta,@concepto,@usuario,@fecha,@entrad,@salid,@iva,@ieps,@folfact) "
+                query = "insert into " & tabCortes & "(folVenta,monto,concepto,usuario,fecha,entrada,salida,totiva,totieps,folfactura,ventas,utilidad) " &
+                    " values (@folvnta,@montovnta,@concepto,@usuario,@fecha,@entrad,@salid,@iva,@ieps,@folfact,@venta,@util) "
 
                 cmd = New SqlCommand(query, Scon)
 
@@ -248,6 +248,8 @@ Public Class VentasDAL
                 cmd.Parameters.AddWithValue("@iva", modelCbzVenta.Totiva)
                 cmd.Parameters.AddWithValue("@ieps", modelCbzVenta.Totieps)
                 cmd.Parameters.AddWithValue("@folfact", IIf(modelCbzVenta.FolFactura Is Nothing, DBNull.Value, modelCbzVenta.FolFactura))
+                cmd.Parameters.AddWithValue("@venta", modelCbzVenta.Ventas)
+                cmd.Parameters.AddWithValue("@util", modelCbzVenta.Utilidad)
 
                 retorna = cmd.ExecuteNonQuery()
 
@@ -257,8 +259,9 @@ Public Class VentasDAL
                 Dim strdetalle As String
                 For Each itm As GestorEntities.LineasDetalleVenta In modelListDetalle
 
-                    strdetalle = "insert into " & tabVentas & "(no_ticket,unidad,cantidad,descripcion,precio,importe,fecha,maquina,cve_pro,descto,iva_aplic,ieps_aplic,edo_fact,codigo)" & _
-                        "values (@folvnta,@unid,@cant,@descrip,@prec,@import,@fecha,@maquina,@cve_pro,@descto,@iva,@ieps,@edofact,@codigo)"
+                    itm.Utilidad = CalculaUtilidadProducto(itm.codigo, itm.cantidad, idUsuario)
+                    strdetalle = "insert into " & tabVentas & "(no_ticket,unidad,cantidad,descripcion,precio,importe,fecha,maquina,cve_pro,descto,iva_aplic,ieps_aplic,edo_fact,codigo,utilidad)" &
+                        "values (@folvnta,@unid,@cant,@descrip,@prec,@import,@fecha,@maquina,@cve_pro,@descto,@iva,@ieps,@edofact,@codigo,@utilidad)"
                     cmdD = New SqlCommand(strdetalle, Scon)
 
                     cmdD.Parameters.AddWithValue("@folvnta", modelCbzVenta.FolVenta)
@@ -275,6 +278,7 @@ Public Class VentasDAL
                     cmdD.Parameters.AddWithValue("@ieps", itm.ieps_aplic)
                     cmdD.Parameters.AddWithValue("@edofact", "")
                     cmdD.Parameters.AddWithValue("@codigo", itm.codigo)
+                    cmdD.Parameters.AddWithValue("@utilidad", itm.Utilidad)
 
                     retorna = cmdD.ExecuteNonQuery()
                 Next
@@ -423,7 +427,7 @@ Public Class VentasDAL
         Dim ord As SqlDataAdapter
         If tipo = "A" Then
             Dim query As String
-            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(entradas)as Entradas,sum(salidas)as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and fecha=@dia group by fecha "
+            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(entradas)as Entradas,sum(salidas)as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and cast(fecha as date)=@dia group by fecha "
             ord = New SqlDataAdapter(query, Scon)
 
             ord.SelectCommand.Parameters.AddWithValue("@concept", " venta")
@@ -455,6 +459,28 @@ Public Class VentasDAL
         End If
 
         Return dsR
+
+    End Function
+    Private Function CalculaUtilidadProducto(ByVal codigo As String, ByVal cantidad As Single, ByVal idsession As String) As Single
+        Dim utilcalc As Single
+
+        Dim tabname As String
+        tabname = "Productos" & Trim(idsession)
+
+        Dim Scon As New SqlConnection(ConfigurationManager.ConnectionStrings("gestorFacturasConnectionString").ToString)
+
+        Dim query As String
+        Dim ord As SqlDataAdapter
+        Dim ds As New DataTable
+        query = "select utilidad from " & tabname & " where codigo=@codigo"
+        ord = New SqlDataAdapter(query, Scon)
+        ord.SelectCommand.Parameters.AddWithValue("@codigo", codigo)
+        ord.Fill(ds)
+        If ds.Rows.Count > 0 Then
+            utilcalc = FormatNumber(ds.Rows(0)(0) * cantidad, 2)
+        End If
+
+        Return utilcalc
 
     End Function
     Public Shared Function DatosGraficar(ByVal session As String, ByVal fechIni As Date, ByVal fechFin As Date) As DataSet

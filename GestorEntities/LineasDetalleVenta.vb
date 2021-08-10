@@ -138,4 +138,13 @@
             ahorr = value
         End Set
     End Property
+    Private _utilidad As Decimal
+    Public Property Utilidad As Decimal
+        Get
+            Return _utilidad
+        End Get
+        Set(ByVal value As Decimal)
+            _utilidad = value
+        End Set
+    End Property
 End Class

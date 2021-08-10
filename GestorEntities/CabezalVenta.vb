@@ -62,4 +62,22 @@
             _folFactura = value
         End Set
     End Property
+    Private _venta As Single
+    Public Property Ventas As Single 'Por compatibilidad Punto de Venta Desktop
+        Get
+            Return _venta
+        End Get
+        Set(value As Single)
+            _venta = value
+        End Set
+    End Property
+    Private _utilidad As Single
+    Public Property Utilidad As Single '
+        Get
+            Return Utilidad
+        End Get
+        Set(value As Single)
+            _utilidad = value
+        End Set
+    End Property
 End Class
