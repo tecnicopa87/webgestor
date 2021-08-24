@@ -1,9 +1,9 @@
 use gestorFacturas
 go
-create procedure spCreaTablas @idClient varchar(5),@NombreTabla nvarchar(150)
+create procedure spCreaTablas @idClient varchar(5)
 as
 begin
-DECLARE @sql NVARCHAR(MAX);
+DECLARE @sql NVARCHAR(MAX),@NombreTabla nvarchar(100);
 set @NombreTabla='Ventas'+@idClient;
 set @SQL= N' Create table '+QUOTENAME(@NombreTabla);
 set  @SQL =@SQL+ '('+'
