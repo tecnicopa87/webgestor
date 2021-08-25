@@ -135,6 +135,8 @@ Public Class Login
                     Catch ex As Exception
                         cadenaConect = Nothing
                     End Try
+                    'Si existía previa, eliminar session:
+                    Session("tabGeneradas") = Nothing
                     Try
                         config = tab.Tables(0).Rows(0)(5) '
                         If config = True Then
@@ -144,7 +146,7 @@ Public Class Login
                         'Aun no configura el uso de Aplicacion
                     End Try
 
-                    Session("idClient") = ses
+                    Session("idClient") = Trim(ses)
                     If autFact = "0" Then
                         'indico se agotaron sus cfdis
                         Session("NoCFDIs") = "null"

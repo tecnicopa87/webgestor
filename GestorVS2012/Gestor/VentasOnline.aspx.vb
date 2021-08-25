@@ -12,7 +12,7 @@ Public Class VentasOnline
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        If Request.Cookies("SESSION-GESTOR") Is Nothing Then
+        If Request.Cookies("SESSION-GESTOR") Is Nothing Or Session("idClient") Is Nothing Then
             Response.Redirect("~/Account/Login.aspx")
         End If
         CatProductos.Visible = False
@@ -30,7 +30,10 @@ Public Class VentasOnline
         Dim Catalog As New ClientsDAL
         If Page.IsPostBack = False Then
 
-            'Session("idClient") = "001" '<-   %% SOLO TESTTING    %  ?          
+            'Session("idClient") = "001" '<-   %% SOLO TESTTING    %  ? 
+            If Session("tabGeneradas") Is Nothing Then
+                Response.Redirect("Servicio.aspx")
+            End If
             dpdwnListClient.Attributes.Add("onchange", "javascript:return cargaClient();")
 
             ls1 = Catalog.GetALL(Trim(Session("idClient")))

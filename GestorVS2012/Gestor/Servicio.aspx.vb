@@ -7,7 +7,7 @@ Public Class Servicio
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Label2.Text = Date.Now
-        If Request.Cookies("SESSION-GESTOR") Is Nothing Then
+        If Request.Cookies("SESSION-GESTOR") Is Nothing Or Session("idClient") Is Nothing Then
             Response.Redirect("../Default.aspx")
         End If
         If Session("idAdmin") = "A00" Then

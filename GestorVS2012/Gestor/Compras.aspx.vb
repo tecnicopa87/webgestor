@@ -11,8 +11,10 @@ Public Class WebForm7
 
         If Request.Cookies("SESSION-GESTOR") Is Nothing Then
             Response.Redirect("../Default.aspx")
-        End If      
-
+        End If
+        If Session("tabGeneradas") Is Nothing Then
+            Response.Redirect("Servicio.aspx")
+        End If
         'ImageButton1.Attributes.Add("onClick", "javascript:return DespliegaClient();")
         ' - - -
         'VentanaReceptor.Visible = False '
