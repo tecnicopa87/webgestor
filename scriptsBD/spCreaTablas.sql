@@ -101,7 +101,9 @@ SET @SQL=@SQL + '('+'
 	[totieps] [decimal](18, 2) NULL,
 	[folFactura] [varchar](50) NULL,
 	[utilidad] [decimal](18, 2) NULL,
-	[ventas] [real] NULL
+	[ventas] [real] NULL,
+	[entradas] decimal(18,2) null,
+	[salidas] decimal(18,2) null
 ) ON [PRIMARY]'
 EXECUTE sp_executesql  @SQL;
 
