@@ -23,7 +23,8 @@ set  @SQL =@SQL+ '('+'
 	[ahorro_client] [decimal](18, 2) NULL,
 	[edo_fact] [nchar](10) NULL,
 	[no_ventas] [int] IDENTITY(1,1) NOT NULL,
-	[codigo] [varchar](30) NULL
+	[codigo] [varchar](30) NULL,
+	utilidad [decimal](18, 2) NULL
 ) ON [PRIMARY]'
  EXECUTE sp_executesql  @sql;
   set @NombreTabla='detalleVntas'+@idClient
