@@ -145,6 +145,7 @@ publish/
 # passwords
 #*.pubxml
 *.publishproj
+GestorVS2012/My Project/PublishProfiles/*
 
 # NuGet Packages
 *.nupkg

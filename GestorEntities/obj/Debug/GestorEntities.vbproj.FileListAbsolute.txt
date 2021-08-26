@@ -1,8 +1,0 @@
-C:\docs\GestorVS2012\GestorEntities\bin\Debug\GestorEntities.dll
-C:\docs\GestorVS2012\GestorEntities\bin\Debug\GestorEntities.pdb
-C:\docs\GestorVS2012\GestorEntities\bin\Debug\EmpresasEntity.xml
-C:\docs\GestorVS2012\GestorEntities\obj\Debug\GestorEntities.Resources.resources
-C:\docs\GestorVS2012\GestorEntities\obj\Debug\GestorEntities.vbproj.GenerateResource.Cache
-C:\docs\GestorVS2012\GestorEntities\obj\Debug\GestorEntities.dll
-C:\docs\GestorVS2012\GestorEntities\obj\Debug\EmpresasEntity.xml
-C:\docs\GestorVS2012\GestorEntities\obj\Debug\GestorEntities.pdb
