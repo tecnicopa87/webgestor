@@ -312,7 +312,7 @@ Public Class FacturasDAL
             Using Scon 'conn As New SqlConnection(cadenaConexion)
 
                 Dim folio_facturacion As String
-                folio_facturacion = "select serie,fechaEmision,monto,folvnta from " & tbfact & " where folio=@fol"
+                folio_facturacion = "select serie,fechaEmision,monto,folventa from " & tbfact & " where folio=@fol"
                 Dim rep = New SqlDataAdapter(folio_facturacion, Scon)
 
                 rep.SelectCommand.Parameters.AddWithValue("@fol", idfol)

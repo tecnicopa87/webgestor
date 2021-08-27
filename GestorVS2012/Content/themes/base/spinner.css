@@ -1,4 +1,14 @@
-﻿.ui-spinner {
+/*!
+ * jQuery UI Spinner 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/spinner/#theming
+ */
+.ui-spinner {
 	position: relative;
 	display: inline-block;
 	overflow: hidden;

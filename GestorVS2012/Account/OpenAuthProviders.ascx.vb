@@ -1,4 +1,5 @@
-﻿Imports Microsoft.AspNet.Membership.OpenAuth
+﻿'Imports Microsoft.AspNet.Membership.OpenAuth
+Imports Microsoft.AspNet.Membership.OpenAuth
 
 Public Class OpenAuthProviders
     Inherits System.Web.UI.UserControl
