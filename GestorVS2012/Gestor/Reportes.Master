@@ -1,4 +1,4 @@
-﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Reportes.Master.vb" Inherits="GestorVS2012.SiteMaster" %>
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Reportes.Master.vb" Inherits="GestorVS2012.SiteMaster" %>
 
 <!DOCTYPE html>
 <html lang="en">

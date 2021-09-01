@@ -11,16 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class WebForm8
+Partial Public Class VistaReporte
     
     '''<summary>
-    '''ReportViewer1 control.
+    '''ReportViewerR control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ReportViewer1 As Global.Microsoft.Reporting.WebForms.ReportViewer
+    Protected WithEvents ReportViewerR As Global.Microsoft.Reporting.WebForms.ReportViewer
     
     '''<summary>
     '''ObjectDataSource1 control.
