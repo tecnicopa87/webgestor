@@ -148,7 +148,8 @@ SET @SQL=@SQL + '('+'
 	[ieps] [money] NULL,
 	[fechmov] [datetime] NULL,
 	[marcamov] [char](12) NULL,
-	[unidad] [varchar](30) NULL
+	[unidad] [varchar](30) NULL,
+	[utilidad] real NULL
 ) ON [PRIMARY]'
  EXECUTE sp_executesql  @SQL;
 
