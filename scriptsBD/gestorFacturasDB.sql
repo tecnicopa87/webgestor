@@ -600,6 +600,7 @@ CREATE TABLE [dbo].[VntaTMP](
 	[iva_aplic] [decimal](18, 2) NULL,
 	[ieps_aplic] [decimal](18, 2) NULL,
 	[ahorro_client] [decimal](18, 2) NULL,
+	[utilidad] [float] NULL,
 	[edo_fact] [nchar](10) NULL,
 	[no_ventas] [int] IDENTITY(1,1) NOT NULL,
 	[idUsuario] [nchar](5) NULL
