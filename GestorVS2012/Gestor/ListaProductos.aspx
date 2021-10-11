@@ -54,6 +54,9 @@
             </div>
         </div>
         <%--class ="col-sm-4 col-md-3"--%>
+		<div style ="text-align:left">
+			<a href="AltaProductos_.aspx" class ="btn-sm ">Nuevo</a>
+		</div>
         <div style="text-align: right">
             Buscar :<asp:TextBox ID="TextBox1" Style="color: black" runat="server"
                 AutoPostBack="True" /><br />

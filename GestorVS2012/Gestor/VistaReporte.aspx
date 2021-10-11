@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
-    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowFindControls="False" ShowRefreshButton="False" ShowZoomControl="False" SizeToReportContent="True" Width="380px">
     <LocalReport ReportPath="Gestor\Report1.rdlc">
         <DataSources>
             <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />

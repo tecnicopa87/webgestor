@@ -120,6 +120,13 @@ Public Class DatosEmpDAL
     Private Shared Function LoadEmpresa(ByVal reader As IDataReader) As DatosEmpresa
         Dim empresa As New DatosEmpresa
 
+        Dim fechAlta As Date
+        If String.IsNullOrEmpty(reader("fechAlta")) Then '#TEMPORALMENTE colocar manualmente en BD cuando Autorizo
+            fechAlta = New DateTime
+        Else
+            fechAlta = reader("fechAlta")
+        End If
+
         'empresa.idCliente = Convert.ToString(reader("idCliente"))
         empresa.Titulo = Convert.ToString(reader("Titulo"))
         empresa.seudonimo = Convert.ToString(reader("seudonimo"))
@@ -127,7 +134,7 @@ Public Class DatosEmpDAL
         empresa.Regimen = Convert.ToString(reader("Regimen"))
         empresa.Email = Convert.ToString(reader("Email")) 'para envio de factu
         empresa.Pasword = Convert.ToString(reader("Pasword")) 'p envìo de factura
-        empresa.fechAlta = Convert.ToDateTime(reader("fechAlta"))
+        empresa.fechAlta = fechAlta '#PENDIENTE: Debe ser actualizada al momento de Autorizar cuenta
         empresa.Dircalle = Convert.ToString(reader("Dircalle"))
         empresa.noExt = Convert.ToString(reader("noExt"))
         empresa.Municipio = Convert.ToString(reader("Municipio"))

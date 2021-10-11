@@ -371,6 +371,7 @@
     <Content Include="Scripts\bootstrap-datetimepicker.pt-BR.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Gestor\AltaProductos_.aspx" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -480,6 +481,9 @@
     <Compile Include="datosGraficar.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>datosGraficar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="datosGraficar.vb">
       <DependentUpon>datosGraficar.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.vb">
@@ -624,6 +628,13 @@
     </Compile>
     <Compile Include="WebForm10.aspx.vb">
       <DependentUpon>WebForm10.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Gestor\AltaProductos_.aspx.designer.vb">
+      <DependentUpon>AltaProductos_.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestor\AltaProductos_.aspx.vb">
+      <DependentUpon>AltaProductos_.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

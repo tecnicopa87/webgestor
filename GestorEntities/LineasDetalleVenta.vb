@@ -139,11 +139,11 @@
         End Set
     End Property
     Private _utilidad As Decimal
-    Public Property Utilidad As Decimal
+    Public Property Utilidad As Single 'Optimizar memoria
         Get
             Return _utilidad
         End Get
-        Set(ByVal value As Decimal)
+        Set(ByVal value As Single)
             _utilidad = value
         End Set
     End Property

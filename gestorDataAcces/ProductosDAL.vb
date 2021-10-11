@@ -101,7 +101,7 @@ Public Class ProductosDAL
         Else 'uso conexion remota
             Dim Scon As New SqlConnection(cadenaConexion)
 
-            query = "select codigo,producto,precio,precio2,precio3,a_granel,sugerida_inventario,Cve_pro,unidad_p2,unidad_p3,costo,iva,ganancia,catalogo, " & _
+            query = "select codigo,producto,precio,precio2,precio3,a_granel,sugerida_inventario,Cve_pro,unidad_p2,unidad_p3,costo,iva,ganancia,catalogo, " &
                 "cost_caja,precCaja,util_caja,descripCaja from productos where codigo =@codbar"
             ord = New SqlDataAdapter(query, Scon)
             ord.SelectCommand.Parameters.AddWithValue("@codbar", idprod)
@@ -126,31 +126,32 @@ Public Class ProductosDAL
         If cadenaConexion = "" Then
             tabProds = "Productos" & Trim(session)
             Dim Scon As New SqlConnection(ConfigurationManager.ConnectionStrings("gestorFacturasConnectionString").ToString)
-            Try
-                Scon.Open()                
+            Scon.Open()
             tran = Scon.BeginTransaction
-            query = "insert into " & tabProds & " (codigo,producto,precio,precio2,Cve_Pro,a_granel,costo,ganancia,iva,ieps,fechmov,marcamov,unidad) " & _
+            Try
+
+                query = "insert into " & tabProds & " (codigo,producto,precio,precio2,Cve_Pro,a_granel,costo,ganancia,iva,ieps,fechmov,marcamov,unidad) " &
                 "values (@cod,@desc,@prec,@prec2,@cveprov,@granel,@costo,@util,@iva,@ieps,@fechmov,@mov,@unid)"
                 ord = New SqlCommand(query, Scon) ' en mi base web
+                ord.Transaction = tran
+                ord.Parameters.AddWithValue("@cod", modeloP.codigo)
+                ord.Parameters.AddWithValue("@desc", modeloP.descripcion)
+                ord.Parameters.AddWithValue("@prec", modeloP.precio)
+                ord.Parameters.AddWithValue("@prec2", modeloP.precio2)
+                ord.Parameters.AddWithValue("@cveprov", modeloP.cve_provedor)
+                ord.Parameters.AddWithValue("@granel", modeloP.a_granel)
+                ord.Parameters.AddWithValue("@costo", modeloP.costo)
+                ord.Parameters.AddWithValue("@util", modeloP.utilidad)
+                ord.Parameters.AddWithValue("@iva", modeloP.iva)
+                ord.Parameters.AddWithValue("@ieps", modeloP.ieps)
+                ord.Parameters.AddWithValue("@fechmov", modeloP.fechamov)
+                ord.Parameters.AddWithValue("@mov", modeloP.marcamov)
+                ord.Parameters.AddWithValue("@unid", modeloP.unidad)
 
-            ord.Parameters.AddWithValue("@cod", modeloP.codigo)
-            ord.Parameters.AddWithValue("@desc", modeloP.descripcion)
-            ord.Parameters.AddWithValue("@prec", modeloP.precio)
-            ord.Parameters.AddWithValue("@prec2", modeloP.precio2)
-            ord.Parameters.AddWithValue("@cveprov", modeloP.cve_provedor)
-            ord.Parameters.AddWithValue("@granel", modeloP.a_granel)
-            ord.Parameters.AddWithValue("@costo", modeloP.costo)
-            ord.Parameters.AddWithValue("@util", modeloP.utilidad)
-            ord.Parameters.AddWithValue("@iva", modeloP.iva)
-            ord.Parameters.AddWithValue("@ieps", modeloP.ieps)
-            ord.Parameters.AddWithValue("@fechmov", modeloP.fechamov)
-            ord.Parameters.AddWithValue("@mov", modeloP.marcamov)
-            ord.Parameters.AddWithValue("@unid", modeloP.unidad)
-
-            ord.ExecuteNonQuery()
-            tran.Commit()
-            resultado = "correcto"
-            Scon.Close()
+                ord.ExecuteNonQuery()
+                tran.Commit()
+                resultado = "correcto"
+                Scon.Close()
             Catch ex As Exception
                 tran.Rollback()
                 If Scon.State = ConnectionState.Open Then
@@ -161,12 +162,14 @@ Public Class ProductosDAL
 
         Else 'uso conexion remota
             Dim Scon As New SqlConnection(cadenaConexion)
+            Scon.Open()
+            tran = Scon.BeginTransaction
             Try
-                Scon.Open()
-                tran = Scon.BeginTransaction
-                query = "insert into productos (codigo,producto,precio,precio2,Cve_Pro,a_granel,costo,ganancia,iva,ieps,fechmov,marcamov,unidad) " & _
+
+                query = "insert into productos (codigo,producto,precio,precio2,Cve_Pro,a_granel,costo,ganancia,iva,ieps,fechmov,marcamov,unidad) " &
                     "values (@cod,@desc,@prec,@prec2,@cveprov,@granel,@costo,@util,@iva,@ieps,@fechmov,@mov,@unid)"
                 ord = New SqlCommand(query, Scon) ' ** pendiente
+                ord.Transaction = tran
 
                 ord.Parameters.AddWithValue("@cod", modeloP.codigo)
                 ord.Parameters.AddWithValue("@desc", modeloP.descripcion)
@@ -211,7 +214,7 @@ Public Class ProductosDAL
         Dim tran As SqlTransaction
         tabProds = "Productos" & Trim(session)
         Dim Scon As New SqlConnection(ConfigurationManager.ConnectionStrings("gestorFacturasConnectionString").ToString)
-        Try            
+        Try
             Scon.Open()
             tran = Scon.BeginTransaction
             query = "update " & tabProds & " set producto= @desc,precio=@prec,precio2=@prec2,Cve_Prov=@cveprov,a_granel=@granel,costo=@costo,ganancia=@util,iva=@iva,ieps=@ieps,fechmov=@fechmov,marcamov=@mov,unidad=@unid)"
@@ -242,7 +245,7 @@ Public Class ProductosDAL
             End If
             resultado = ex.Message
         End Try
-       
+
         Return resultado
 
     End Function

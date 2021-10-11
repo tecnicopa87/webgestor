@@ -169,13 +169,15 @@ Public Class VentasOnline
 
     Protected Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Dim VntaM As New VentasDAL
-        Dim iva, ieps As Decimal
+        Dim iva, ieps, utilid As Decimal
         iva = Val(txtPrecio.Text) * 0.16
         ieps = 0
+        utilid = 0 '#Calculo utilid es realizado en metodo GuardaVentaOnline
         Dim fmanual As Boolean
         Dim codbar As String = LblCodProd.Text
         If Len(codbar) < 2 Then
             codbar = "0001f"
+            'utilid = Val(txtPrecio.Text) / 1.3
         End If
         fmanual = VntaM.PreventaFactura(Session("idClient"), LblFolVenta.Text, codbar, DropDownList1.SelectedValue, txtCantidad.Text, TextBox2.Text, txtPrecio.Text, txtImporte.Text, "000", "0.0", iva, ieps) 'lista (ejemplo funciona list) (b)
         If fmanual = True Then
@@ -268,6 +270,7 @@ Public Class VentasOnline
         Try
             GridViewTmp.Columns(8).Visible = False
             GridViewTmp.Columns(9).Visible = False
+
         Catch ex As Exception
             e.Row.Cells(8).Visible = False ' Previamente definidas DataKeys
             e.Row.Cells(9).Visible = False
@@ -530,6 +533,7 @@ Public Class VentasOnline
             model.iva_aplic = Convert.ToDecimal(gvVenta.Cells(6).Text)
             model.ieps_aplic = Convert.ToDecimal(gvVenta.Cells(7).Text)
             model.codigo = gvVenta.Cells(9).Text
+
             Totiva += model.iva_aplic
             Totieps += model.ieps_aplic
             modelDetalle.Add(model)

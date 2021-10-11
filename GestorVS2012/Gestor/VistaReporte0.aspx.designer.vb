@@ -14,6 +14,33 @@ Option Explicit On
 Partial Public Class VistaReporte
     
     '''<summary>
+    '''txtdateIni control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtdateIni As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''txtdateFin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtdateFin As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''ReportViewerR control.
     '''</summary>
     '''<remarks>
@@ -23,11 +50,11 @@ Partial Public Class VistaReporte
     Protected WithEvents ReportViewerR As Global.Microsoft.Reporting.WebForms.ReportViewer
     
     '''<summary>
-    '''ObjectDataSource1 control.
+    '''ObjectDataSource2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ObjectDataSource1 As Global.System.Web.UI.WebControls.ObjectDataSource
+    Protected WithEvents ObjectDataSource2 As Global.System.Web.UI.WebControls.ObjectDataSource
 End Class

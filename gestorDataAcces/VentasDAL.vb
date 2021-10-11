@@ -167,6 +167,7 @@ Public Class VentasDAL
             cmd.Parameters.AddWithValue("@descto", dcto)
             cmd.Parameters.AddWithValue("@iva", iva)
             cmd.Parameters.AddWithValue("@ieps", ieps) '
+            'cmd.Parameters.AddWithValue("@util", utilidad)
             cmd.Parameters.AddWithValue("@ID", IDuser)
 
             cmd.Connection.Open()
@@ -232,34 +233,15 @@ Public Class VentasDAL
                 Dim cmd As SqlCommand
                 Scon.Open()
 
-                Dim query As String
-                query = "insert into " & tabCortes & "(folVenta,monto,concepto,usuario,fecha,entrada,salida,totiva,totieps,folfactura,ventas,utilidad) " &
-                    " values (@folvnta,@montovnta,@concepto,@usuario,@fecha,@entrad,@salid,@iva,@ieps,@folfact,@venta,@util) "
-
-                cmd = New SqlCommand(query, Scon)
-
-                cmd.Parameters.AddWithValue("@folvnta", modelCbzVenta.FolVenta)
-                cmd.Parameters.AddWithValue("@montovnta", modelCbzVenta.Monto)
-                cmd.Parameters.AddWithValue("@concepto", "venta")
-                cmd.Parameters.AddWithValue("@usuario", modelCbzVenta.Usuario)
-                cmd.Parameters.AddWithValue("@fecha", modelCbzVenta.FechaRealizacion)
-                cmd.Parameters.AddWithValue("@entrad", DBNull.Value)
-                cmd.Parameters.AddWithValue("@salid", DBNull.Value)
-                cmd.Parameters.AddWithValue("@iva", modelCbzVenta.Totiva)
-                cmd.Parameters.AddWithValue("@ieps", modelCbzVenta.Totieps)
-                cmd.Parameters.AddWithValue("@folfact", IIf(modelCbzVenta.FolFactura Is Nothing, DBNull.Value, modelCbzVenta.FolFactura))
-                cmd.Parameters.AddWithValue("@venta", modelCbzVenta.Ventas)
-                cmd.Parameters.AddWithValue("@util", modelCbzVenta.Utilidad)
-
-                retorna = cmd.ExecuteNonQuery()
-
                 tabVentas = "Ventas" & Trim(idUsuario)
                 Dim cmdD As SqlCommand
 
                 Dim strdetalle As String
+                Dim totUtilid As Single
                 For Each itm As GestorEntities.LineasDetalleVenta In modelListDetalle
 
                     itm.Utilidad = CalculaUtilidadProducto(itm.codigo, itm.cantidad, idUsuario)
+                    totUtilid = totUtilid + itm.Utilidad '#Calulo utilidad
                     strdetalle = "insert into " & tabVentas & "(no_ticket,unidad,cantidad,descripcion,precio,importe,fecha,maquina,cve_pro,descto,iva_aplic,ieps_aplic,edo_fact,codigo,utilidad)" &
                         "values (@folvnta,@unid,@cant,@descrip,@prec,@import,@fecha,@maquina,@cve_pro,@descto,@iva,@ieps,@edofact,@codigo,@utilidad)"
                     cmdD = New SqlCommand(strdetalle, Scon)
@@ -282,6 +264,28 @@ Public Class VentasDAL
 
                     retorna = cmdD.ExecuteNonQuery()
                 Next
+                'Calculo de utilidad Total
+                modelCbzVenta.Utilidad = totUtilid '#u
+                Dim query As String
+                query = "insert into " & tabCortes & "(folVenta,monto,concepto,usuario,fecha,entradas,salidas,totiva,totieps,folfactura,ventas,utilidad) " &
+                    " values (@folvnta,@montovnta,@concepto,@usuario,@fecha,@entrad,@salid,@iva,@ieps,@folfact,@venta,@util) "
+
+                cmd = New SqlCommand(query, Scon)
+
+                cmd.Parameters.AddWithValue("@folvnta", modelCbzVenta.FolVenta)
+                cmd.Parameters.AddWithValue("@montovnta", modelCbzVenta.Monto)
+                cmd.Parameters.AddWithValue("@concepto", " venta") '#compatibilidad con TPV,se guardaba con espacio
+                cmd.Parameters.AddWithValue("@usuario", modelCbzVenta.Usuario)
+                cmd.Parameters.AddWithValue("@fecha", modelCbzVenta.FechaRealizacion)
+                cmd.Parameters.AddWithValue("@entrad", DBNull.Value)
+                cmd.Parameters.AddWithValue("@salid", DBNull.Value)
+                cmd.Parameters.AddWithValue("@iva", modelCbzVenta.Totiva)
+                cmd.Parameters.AddWithValue("@ieps", modelCbzVenta.Totieps)
+                cmd.Parameters.AddWithValue("@folfact", IIf(modelCbzVenta.FolFactura Is Nothing, DBNull.Value, modelCbzVenta.FolFactura))
+                cmd.Parameters.AddWithValue("@venta", modelCbzVenta.Ventas)
+                cmd.Parameters.AddWithValue("@util", totUtilid) '#u Capricho de compilador no asigna al modelo
+
+                retorna = cmd.ExecuteNonQuery()
                 Resultado = "correcto"
                 ' The Complete method commits the transaction. If an exception has been thrown,
                 ' Complete is called and the transaction is rolled back.
@@ -427,7 +431,7 @@ Public Class VentasDAL
         Dim ord As SqlDataAdapter
         If tipo = "A" Then
             Dim query As String
-            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(entradas)as Entradas,sum(salidas)as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and cast(fecha as date)=@dia group by fecha "
+            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(isnull(entradas,0))as Entradas,sum(isnull(salidas,0))as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and cast(fecha as date)=cast(@dia as date) group by fecha "
             ord = New SqlDataAdapter(query, Scon)
 
             ord.SelectCommand.Parameters.AddWithValue("@concept", " venta")
@@ -472,7 +476,7 @@ Public Class VentasDAL
         Dim query As String
         Dim ord As SqlDataAdapter
         Dim ds As New DataTable
-        query = "select utilidad from " & tabname & " where codigo=@codigo"
+        query = "select ganancia from " & tabname & " where codigo=@codigo"
         ord = New SqlDataAdapter(query, Scon)
         ord.SelectCommand.Parameters.AddWithValue("@codigo", codigo)
         ord.Fill(ds)
