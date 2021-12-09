@@ -8,13 +8,13 @@ Public Class WebForm7
     Dim foo As Boolean
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        If Request.Cookies("SESSION-GESTOR") Is Nothing Then
-            Response.Redirect("../Default.aspx")
-        End If
-        If Session("tabGeneradas") Is Nothing Then
-            Response.Redirect("Servicio.aspx")
-        End If
+        Session("idClient") = "001"
+        'If Request.Cookies("SESSION-GESTOR") Is Nothing Then  ########
+        '    Response.Redirect("../Default.aspx")
+        'End If
+        'If Session("tabGeneradas") Is Nothing Then
+        '    Response.Redirect("Servicio.aspx")
+        'End If                                              ############
         'ImageButton1.Attributes.Add("onClick", "javascript:return DespliegaClient();")
         ' - - -
         'VentanaReceptor.Visible = False '
@@ -135,7 +135,7 @@ Public Class WebForm7
         If Len(codbar) < 2 Then
             codbar = "0001f"
         End If
-        fmanual = VntaM.PreventaFactura(Session("idClient"), "001", codbar, DropDownList1.SelectedValue, txtCantidad.Text, TextBox2.Text, txtPrecio.Text, txtImporte.Text, "000", "0.0", iva, ieps) 'lista (ejemplo funciona list) (b)
+        fmanual = VntaM.PreventaFactura(Session("idClient"), "001", codbar, DropDownList1.SelectedValue, txtCantidad.Text, TextBox6.Text, txtPrecio.Text, txtImporte.Text, "000", "0.0", iva, ieps) 'lista (ejemplo funciona list) (b)
         If fmanual = True Then
 
             Dim PreVnta As Preventa = VntaM.VisualizPrevnta(Session("idClient"), "001") 'Invoko al metodo
@@ -151,7 +151,7 @@ Public Class WebForm7
 
         'limpiar controles
         txtCantidad.Text = ""
-        TextBox2.Text = ""
+        TextCliente.Text = ""
         txtPrecio.Text = ""
         txtImporte.Text = ""
         txtCantidad.Focus()
@@ -268,7 +268,7 @@ Public Class WebForm7
 
         txtCantidad.Text = "1"
         LblCodProd.Text = Convert.ToString(row.Cells(1).Text)
-        TextBox2.Text = Convert.ToString(row.Cells(2).Text)
+        TextCliente.Text = Convert.ToString(row.Cells(2).Text)
         txtPrecio.Text = Convert.ToDecimal(row.Cells(3).Text)
         txtImporte.Text = Convert.ToDecimal(row.Cells(3).Text) 'importe por default
     End Sub

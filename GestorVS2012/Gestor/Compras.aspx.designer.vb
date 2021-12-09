@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class WebForm7
-
+    
     '''<summary>
     '''LblNombEmp control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LblNombEmp As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''Label7 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label7 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TextCliente control.
     '''</summary>
@@ -39,61 +39,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextCliente As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Label9 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label9 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''DropDownList2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DropDownList2 As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''btnCatProductos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnCatProductos As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''LblCargProds control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LblCargProds As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''LblCompraExitosa control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LblCompraExitosa As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''Label2 control.
     '''</summary>
@@ -102,43 +48,61 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
-    '''Label3 control.
+    '''btnCatProductos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents btnCatProductos As Global.System.Web.UI.WebControls.Button
+    
     '''<summary>
-    '''Label4 control.
+    '''LblCargProds control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents LblCargProds As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''Label5 control.
+    '''LblCompraExitosa control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents LblCompraExitosa As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''LblCodProd control.
+    '''Label1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LblCodProd As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''DropDownList2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DropDownList2 As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Label11 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label11 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtCantidad control.
     '''</summary>
@@ -147,25 +111,34 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCantidad As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''DropDownList1 control.
+    '''Label12 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
-
+    Protected WithEvents Label12 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
-    '''TextBox2 control.
+    '''TextBox6 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
-
+    Protected WithEvents TextBox6 As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''Label4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtPrecio control.
     '''</summary>
@@ -174,7 +147,16 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPrecio As Global.System.Web.UI.WebControls.TextBox
-
+    
+    '''<summary>
+    '''Label5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
+    
     '''<summary>
     '''txtImporte control.
     '''</summary>
@@ -183,7 +165,25 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtImporte As Global.System.Web.UI.WebControls.TextBox
-
+    
+    '''<summary>
+    '''LblCodProd control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LblCodProd As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''DropDownList1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    
     '''<summary>
     '''btnIngresar control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnIngresar As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''GridView1 control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-
+    
     '''<summary>
     '''SqlDataSource1 control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
-
+    
     '''<summary>
     '''Label6 control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''BttnConfirmar control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BttnConfirmar As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''Label8 control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label8 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''DropDownList3 control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DropDownList3 As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldValidator8 control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator8 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox1 control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator9 control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator9 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox3 control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator10 control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator10 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox4 control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator12 control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator12 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox11 control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox11 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator13 control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator13 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox12 control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox12 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator14 control.
     '''</summary>
@@ -345,7 +345,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator14 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''TextBox14 control.
     '''</summary>
@@ -354,7 +354,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox14 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator15 control.
     '''</summary>
@@ -363,7 +363,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator15 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''ButtonM control.
     '''</summary>
@@ -372,7 +372,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ButtonM As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''CatProductos control.
     '''</summary>
@@ -381,7 +381,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents CatProductos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''Label10 control.
     '''</summary>
@@ -390,7 +390,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label10 As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''TextBox13 control.
     '''</summary>
@@ -399,7 +399,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox13 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''btnBuscaArticulo control.
     '''</summary>
@@ -408,7 +408,7 @@ Partial Public Class WebForm7
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnBuscaArticulo As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''GridView2 control.
     '''</summary>
