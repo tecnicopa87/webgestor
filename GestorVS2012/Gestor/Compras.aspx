@@ -204,7 +204,7 @@
 
 					} else {
 
-						var txtdato1 = document.getElementById('<%=TextCliente.ClientID %>');
+						var txtdato1 = document.getElementById('<%=TextBox6.ClientID %>');
                             	var txtdato2 = document.getElementById('<%=txtPrecio.ClientID %>');
                             	if (txtdato1.value == "" || txtdato2.value == "") {
                             		alert(' Se requieren llenar datos minimos para agregar un articulo');

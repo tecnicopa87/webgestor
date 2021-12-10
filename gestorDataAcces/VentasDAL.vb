@@ -145,14 +145,14 @@ Public Class VentasDAL
 
     End Function
 
-    Public Function PreventaFactura(ByVal IDuser As String, ByVal foltik As Integer, ByVal idprod As String, ByVal und As String, ByVal ct As Decimal, ByVal desc As String, ByVal prec As Decimal, ByVal imp As Decimal, ByVal cvePro As String, ByVal dcto As Decimal, ByVal iva As Decimal, ByVal ieps As Decimal) As Boolean
+    Public Function PreventaFactura(ByVal IDuser As String, ByVal foltik As Integer, ByVal idprod As String, ByVal und As String, ByVal ct As Decimal, ByVal desc As String, ByVal prec As Decimal, ByVal imp As Decimal, ByVal cvePro As String, ByVal dcto As Decimal, ByVal iva As Decimal, ByVal ieps As Decimal, Optional ByVal equipo As String = "web") As Boolean
         Dim exito As Boolean
 
         Try
             Dim Scon As New SqlConnection(ConfigurationManager.ConnectionStrings("gestorFacturasConnectionString").ToString)
             Dim cmd As SqlCommand
             Dim query As String
-            query = "insert into VntaTMP(no_ticket,codigo,unidad,cantidad,descripcion,precio,importe,cve_pro,descto,iva_aplic,ieps_aplic,idUsuario)" &
+            query = "insert into VntaTMP(no_ticket,codigo,unidad,cantidad,descripcion,precio,importe,fecha,maquina,cve_pro,descto,iva_aplic,ieps_aplic,idUsuario)" &
             "values (@notik,@idprod,@unid,@cant,@descrip,@prec,@import,@cve_pro,@descto,@iva,@ieps,@ID) "
 
             cmd = New SqlCommand(query, Scon)
@@ -163,6 +163,8 @@ Public Class VentasDAL
             cmd.Parameters.AddWithValue("@descrip", desc)
             cmd.Parameters.AddWithValue("@prec", prec)
             cmd.Parameters.AddWithValue("@import", imp)
+            cmd.Parameters.AddWithValue("@fecha", Date.Today)
+            cmd.Parameters.AddWithValue("@maquina", equipo)
             cmd.Parameters.AddWithValue("@cve_pro", cvePro)
             cmd.Parameters.AddWithValue("@descto", dcto)
             cmd.Parameters.AddWithValue("@iva", iva)

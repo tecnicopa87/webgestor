@@ -268,7 +268,7 @@ Public Class WebForm7
 
         txtCantidad.Text = "1"
         LblCodProd.Text = Convert.ToString(row.Cells(1).Text)
-        TextCliente.Text = Convert.ToString(row.Cells(2).Text)
+        TextBox6.Text = Convert.ToString(row.Cells(2).Text)
         txtPrecio.Text = Convert.ToDecimal(row.Cells(3).Text)
         txtImporte.Text = Convert.ToDecimal(row.Cells(3).Text) 'importe por default
     End Sub
