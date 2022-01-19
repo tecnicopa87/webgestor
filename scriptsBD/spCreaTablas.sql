@@ -1,6 +1,6 @@
 use gestorFacturas
 go
-create procedure CreaTablas @idClient varchar(5)
+create procedure spCreaTablas @idClient varchar(5)
 as
 begin
 DECLARE @sql NVARCHAR(MAX),@NombreTabla nvarchar(150);
@@ -24,7 +24,8 @@ set  @SQL =@SQL+ '('+'
 	[ahorro_client] [decimal](18, 2) NULL,
 	[edo_fact] [nchar](10) NULL,
 	[no_ventas] [int] IDENTITY(1,1) NOT NULL,
-	[codigo] [varchar](30) NULL
+	[codigo] [varchar](30) NULL,
+        [utilidad] [float] NULL
 ) ON [PRIMARY]'
  EXECUTE sp_executesql  @sql;
   set @NombreTabla='detalleVntas'+@idClient
@@ -101,7 +102,9 @@ SET @SQL=@SQL + '('+'
 	[totieps] [decimal](18, 2) NULL,
 	[folFactura] [varchar](50) NULL,
 	[utilidad] [decimal](18, 2) NULL,
-	[ventas] [real] NULL
+	[ventas] [real] NULL,
+        [entradas] [float] NULL,
+        [salidas] [float] NULL
 ) ON [PRIMARY]'
 EXECUTE sp_executesql  @SQL;
 
@@ -208,5 +211,5 @@ SET @SQL=@SQL + '('+'
 	EXECUTE sp_executesql  @SQL;
 end
 GO
-grant exec on CreaTablas to public
+grant exec on spCreaTablas to public
 go

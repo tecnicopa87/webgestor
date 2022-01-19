@@ -83,7 +83,7 @@ Public Class Conexion
         Dim comand As SqlCommand = Scon.CreateCommand
         comand.Transaction = sqltran
         Try
-            comand.CommandText = ("EXEC spCreaTablas " & id)
+            comand.CommandText = ("EXEC spCreaTablas '" & id & "'")
 
             comand.ExecuteNonQuery()
 

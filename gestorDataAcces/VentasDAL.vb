@@ -153,7 +153,7 @@ Public Class VentasDAL
             Dim cmd As SqlCommand
             Dim query As String
             query = "insert into VntaTMP(no_ticket,codigo,unidad,cantidad,descripcion,precio,importe,fecha,maquina,cve_pro,descto,iva_aplic,ieps_aplic,idUsuario)" &
-            "values (@notik,@idprod,@unid,@cant,@descrip,@prec,@import,@cve_pro,@descto,@iva,@ieps,@ID) "
+            "values (@notik,@idprod,@unid,@cant,@descrip,@prec,@import,@fecha,@maquina,@cve_pro,@descto,@iva,@ieps,@ID) "
 
             cmd = New SqlCommand(query, Scon)
             cmd.Parameters.AddWithValue("@notik", foltik)
