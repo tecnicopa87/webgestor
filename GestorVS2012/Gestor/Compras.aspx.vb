@@ -415,7 +415,7 @@ Public Class WebForm7
         LblCompraExitosa.Visible = False
         If existen = 0 Then
             LblCargProds.Text = "Aun no existen productos registrados"
-            LblCargProds.ViewStateMode = True
+            'LblCargProds.ViewStateMode = True <- que sentido tiene ?
         Else
             CatProductos.Visible = True
             GridView2.DataSource = dsP

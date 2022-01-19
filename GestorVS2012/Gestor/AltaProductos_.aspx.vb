@@ -14,7 +14,7 @@ Public Class WebForm11
             modeloP.codigo = txtcodigo.Text
             modeloP.descripcion = txtproducto.Text
             modeloP.precio = txtprecio.Text
-            modeloP.precio2 = txtprecio2.Text
+            modeloP.precio2 = IIf(txtprecio2.Text = "", 0, txtprecio2.Text)
             modeloP.costo = txtcosto.Text
             modeloP.utilidad = txtUtilidad.Text
             modeloP.iva = txtIVA.Text

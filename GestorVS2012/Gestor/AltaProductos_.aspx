@@ -20,7 +20,7 @@
 		<div class="col-md-8">
 			<asp:TextBox ID="txtproducto" CssClass="form-control" runat="server" Text='<%# Eval("producto") %>'></asp:TextBox>
 			<asp:RequiredFieldValidator ID="RequiredValidator2" runat="server" ControlToValidate="txtproducto" ErrorMessage=" *" ForeColor="Red"></asp:RequiredFieldValidator>
-			<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtproducto" ErrorMessage="no se aceptan caracteres especiales " ForeColor="#FF3300" ValidationExpression="^[0-9a-zA-Z ]+$"></asp:RegularExpressionValidator>
+			<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtproducto" ErrorMessage="no se aceptan caracteres especiales " ForeColor="#FF3300" ValidationExpression="^[0-9a-zA-Z /.]+$"></asp:RegularExpressionValidator>
 		</div>
 	</div>
 	<div class="form-group">

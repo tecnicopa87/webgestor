@@ -174,7 +174,7 @@
 			<div class ="row">
 				<div class="col-md-4 ">
 				<asp:Button ID="btnCatProductos" CssClass="btn btn-sm " runat="server" Text="Cat productos" Width="111px" Font-Bold="True" ForeColor="#660066" /><asp:Label ID="LblCargProds" runat="server" Font-Bold="True"
-					class="control-label" ForeColor="#CC0000" Text="P" Visible="False"></asp:Label>
+					CssClass="control-label" ForeColor="#CC0000" Text="P" Visible="False"></asp:Label>
 
 				<asp:Label ID="LblCompraExitosa" runat="server" Font-Bold="True" ForeColor="#CC99FF" Text="Se registrò su compra exitosamente" Visible="False"></asp:Label>
 				<br />
