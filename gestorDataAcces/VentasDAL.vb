@@ -421,17 +421,21 @@ Public Class VentasDAL
         cadenaConexion = con.ConfiguracionEmpresa(Trim(session))
 
         Dim Scon As SqlConnection ' www.dominio.sql,00
-        If cadenaConexion = "" Then
+        If cadenaConexion = "" Then '       <--    forma local web
             Scon = New SqlConnection(ConfigurationManager.ConnectionStrings("gestorFacturasConnectionString").ToString)
+        Else
+            Scon = New SqlConnection(cadenaConexion) 'forma remota
         End If
         Dim ord As SqlDataAdapter
         If tipo = "A" Then
+            Scon.Open()
             Dim query As String
-            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(entradas)as Entradas,sum(salidas)as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and cast(fecha as date)=@dia group by fecha "
+
+            query = "select fecha,sum(ventas)as Monto,sum(utilidad)as Utilidad,sum(entradas)as Entradas,sum(salidas)as Salidas from " & IIf(cadenaConexion = "", "Cortes" + Trim(session), "Cortes") & " where concepto=@concept and cast(fecha as date)=@dia group by fecha"
             ord = New SqlDataAdapter(query, Scon)
 
-            ord.SelectCommand.Parameters.AddWithValue("@concept", " venta")
-            ord.SelectCommand.Parameters.AddWithValue("@dia", Date.Today)
+            ord.SelectCommand.Parameters.AddWithValue("@concept", IIf(cadenaConexion = "", "venta", " venta")) 'deje espacio en Version Escritorio
+            ord.SelectCommand.Parameters.AddWithValue("@dia", Date.Today.ToShortDateString)
 
             'dsVF = New DataSet
             ord.Fill(dsR, "CortesVnta")
